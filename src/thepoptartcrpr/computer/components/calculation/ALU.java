@@ -19,7 +19,7 @@ public class ALU {
 		}
 		// this.values[0] = arr;
 		// this.values[1] = arr;
-		int[] arr1 = new int[] {0, 0, 0, 0, 0, 0, 0, 1};
+		int[] arr1 = new int[] {0, 0, 0, 0, 0, 0, 1, 1};
 		int[] arr2 = new int[] {0, 0, 0, 0, 0, 0, 1, 1};
 		
 		this.values[0] = arr1;

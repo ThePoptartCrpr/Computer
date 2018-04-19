@@ -25,7 +25,7 @@ public class Adder {
 		}
 	}
 	
-	public Integer[] getOutput() {
+	/*public Integer[] getOutput() {
 		ArrayList<Integer> output = new ArrayList<Integer>();
 		for (int i = size - 1; i >= 0; i--) {
 			int o = this.adders[i].getOutput();
@@ -35,14 +35,20 @@ public class Adder {
 		return output.toArray(new Integer[0]);
 		// String str = Arrays.toString(arr);
 		// String str = String.join(",", output.tos);
-		/*String str = "";
-		for (int i : output) {
-			str += i;
-		}*/
 		// System.out.println(str);
 		// return 1;
 		// return Integer.parseInt(str);
 		// return str;
+	}*/
+	
+	public String getOutput() {
+		String output = "";
+		for (int i = size - 1; i >= 0; i--) {
+			int o = this.adders[i].getOutput();
+			output = o + output;
+		}
+		
+		return output;
 	}
 	
 	public AdderBit getNextBit(AdderBit bit) {
