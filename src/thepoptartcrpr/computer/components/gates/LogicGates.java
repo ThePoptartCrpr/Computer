@@ -11,6 +11,11 @@ public class LogicGates {
 		else return 0;
 	}
 	
+	public int nand(int a, int b) {
+		if (a == 1 && b == 1) return 0;
+		else return 1;
+	}
+	
 	public int xor(int a, int b) {
 		if (a == b) return 0;
 		else return 1;
