@@ -25,5 +25,10 @@ public class LogicGates {
 		if (a == 1) return 0;
 		else return 1;
 	}
+	
+	public int nor(int a, int b) {
+		if (a == 0 && b == 0) return 1;
+		else return 0;
+	}
 
 }
