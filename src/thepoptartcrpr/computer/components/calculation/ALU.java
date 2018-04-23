@@ -11,21 +11,21 @@ public class ALU {
 	private int[] output;
 	private int size;
 	private CPU cpu;
-	private ALUBit overflowBit;
+	private ALUExcessBit overflowBit;
 	private ALUBit[] bits;
-	private ALUBit underflowBit;
+	private ALUExcessBit underflowBit;
 	
 	public ALU(int size) {
 		this.size = size;
 		this.output = new int[this.size];
-		this.inputs = new int[][]{{0, 0, 0, 0, 0, 0, 1, 1}, {0, 0, 0, 0, 0, 0, 1, 0}};
+		this.inputs = new int[][]{{0, 0, 0, 0, 0, 0, 1, 1}, {0, 0, 0, 0, 0, 0, 1, 1}};
 		this.bits = new ALUBit[this.size];
 		for (int i = 0; i < size; i++) {
 			this.bits[i] = new ALUBit(this);
 			this.bits[i].setInputs(new int[] {this.inputs[0][i], this.inputs[1][i]});
 		}
-		this.overflowBit = new ALUBit(this);
-		this.underflowBit = new ALUBit(this);
+		this.overflowBit = new ALUExcessBit(this);
+		this.underflowBit = new ALUExcessBit(this);
 	}
 	
 	public void setCPU(CPU cpu) {
@@ -34,9 +34,10 @@ public class ALU {
 	
 	public void add() {
 		// this.invertA();
-		this.invertB();
-		this.bits[this.size - 1].carryIn();
-		// this.bits[this.size - 1].carryIn();
+		// this.invertB();
+		for (int i = this.size - 1; i >= 0; i--) {
+			this.bits[i].add();
+		}
 		System.out.println(Arrays.toString(this.getOutput()));
 	}
 	
