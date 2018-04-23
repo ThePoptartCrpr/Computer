@@ -20,7 +20,7 @@ public class Computer {
 	}
 	
 	public void start() {
-		
+		clock.start();
 	}
 	
 	public RAM getRam() {

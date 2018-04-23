@@ -30,11 +30,6 @@ public class ALUBit {
 	}
 	
 	public void carryIn() {
-		/*if (this.carry == 1) {
-			this.alu.getNextBit(this).carryIn();
-			this.carry = 0;
-		}
-		else this.carry = 1;*/
 		if (this.carry == 1) this.alu.getNextBit(this).carryIn();
 		this.carry = gates.xor(1, this.carry);
 	}
@@ -63,12 +58,16 @@ public class ALUBit {
 		this.output = gates.xor(xored, this.carry);
 	}
 	
+	public void or() {
+		this.output = gates.or(this.inputs[0], this.inputs[1]);
+	}
+	
+	public void xor() {
+		this.output = gates.xor(this.inputs[0], this.inputs[1]);
+	}
+	
 	public int getOutput() {
 		System.out.println(Arrays.toString(inputs) + " " + this.carry);
-		/*if (gates.and(inputs[0], inputs[1]) == 1) this.alu.getNextBit(this).carryIn();
-		int xored = gates.xor(inputs[0], inputs[1]);
-		if (gates.and(gates.xor(inputs[0], inputs[1]), this.carry) == 1) this.alu.getNextBit(this).carryIn();
-		return gates.xor(xored, this.carry);*/
 		return this.output;
 	}
 

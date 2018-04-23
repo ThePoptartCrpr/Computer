@@ -33,10 +33,31 @@ public class ALU {
 	}
 	
 	public void add() {
-		// this.invertA();
-		// this.invertB();
 		for (int i = this.size - 1; i >= 0; i--) {
 			this.bits[i].add();
+		}
+		System.out.println(Arrays.toString(this.getOutput()));
+	}
+	
+	public void subtract() {
+		this.invertB();
+		this.carryIn();
+		for (int i = this.size - 1; i >= 0; i--) {
+			this.bits[i].add();
+		}
+		System.out.println(Arrays.toString(this.getOutput()));
+	}
+	
+	public void or() {
+		for (ALUBit bit : this.bits) {
+			bit.or();
+		}
+		System.out.println(Arrays.toString(this.getOutput()));
+	}
+	
+	public void xor() {
+		for (ALUBit bit : this.bits) {
+			bit.xor();
 		}
 		System.out.println(Arrays.toString(this.getOutput()));
 	}

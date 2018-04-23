@@ -8,6 +8,7 @@ public class UI {
 		// Creates an 8-bit computer
 		Computer comp = new Computer(8);
 		
+		// Starts the computer
 		comp.start();
 	}
 
