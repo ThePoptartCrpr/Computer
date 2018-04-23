@@ -22,6 +22,10 @@ public class Clock {
 	}
 	
 	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+	
+	public void onClockTick() {
 		
 	}
 

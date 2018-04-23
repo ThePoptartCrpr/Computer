@@ -14,13 +14,17 @@ public class Computer {
 	
 	public Computer(int bits) {
 		this.bits = bits;
-		this.ram = new RAM(bits);
-		this.cpu = new CPU(bits);
+		this.ram = new RAM(bits, 4);
+		this.cpu = new CPU(bits, this);
 		this.clock = new Clock();
 	}
 	
 	public void start() {
 		
+	}
+	
+	public RAM getRam() {
+		return this.ram;
 	}
 
 }
